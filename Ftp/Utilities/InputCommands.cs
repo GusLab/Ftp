@@ -48,7 +48,7 @@ namespace Ftp.Utilities
                         LocalActive = true;
                         break;
                 }              
-                else if (args[i].equals("-A")) {
+                /*else if (args[i].equals("-A")) {
                     username = "anonymous";
                     password = System.getProperty("user.name")+"@"+InetAddress.getLocalHost().getHostName();
                 }
@@ -119,7 +119,7 @@ namespace Ftp.Utilities
                 }
                 else {
                     break;
-                }
+                }*/
             }
         }
     }
