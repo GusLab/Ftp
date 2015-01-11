@@ -10,7 +10,7 @@ namespace Ftp.Tests
         [Test]
         public void ParseInputCommandsTest()
         {
-            InputCommands inputCommands = new InputCommands();
+            var inputCommands = new InputCommands();
 
             var parseInputCommandArgs = new String[5]
             {

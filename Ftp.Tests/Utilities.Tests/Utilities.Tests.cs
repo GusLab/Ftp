@@ -10,15 +10,15 @@ namespace Ftp.Tests
         [Test]
         public void PrintUsageTextTest()
         {
-            using (StringWriter testStringWriter = new StringWriter())
+            using (var testStringWriter = new StringWriter())
             {
                 Console.SetOut(testStringWriter);
 
-                Utilities.Utilities util = new Utilities.Utilities();
+                var util = new Utilities.Utilities();
 
                 util.PrintUsageText();
 
-                string expected = string.Format("Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]\n" +
+                var expected = string.Format("Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]\n" +
                                                 "\nDefault behavior is to download a file and use ASCII transfer mode.\n" +
                                                 "\t-a - use local active mode (default is local passive)\n" +
                                                 "\t-A - anonymous login (omit username and password parameters)\n" +
