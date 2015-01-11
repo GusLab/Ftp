@@ -8,7 +8,7 @@ namespace Ftp.Utilities
 {
     public sealed class Utilities
     {
-        const String UsageText =
+        private const String UsageText =
             "Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]\n" +
             "\nDefault behavior is to download a file and use ASCII transfer mode.\n" +
             "\t-a - use local active mode (default is local passive)\n" +
