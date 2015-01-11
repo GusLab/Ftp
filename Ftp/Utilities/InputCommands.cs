@@ -8,110 +8,113 @@ namespace Ftp.Utilities
 {
     public sealed class InputCommands
     {
-        Boolean StoreFile = false, 
+        public Boolean StoreFile = false, 
             BinaryTransfer = false, 
             Error = false, 
             ListFiles = false, 
             ListNames = false, 
             Hidden = false;
-        Boolean LocalActive = false, 
+        public Boolean LocalActive = false, 
             UseEpsvWithIPv4 = false, 
             Feat = false, 
             PrintHash = false;
-        Boolean Mlst = false, 
+        public Boolean Mlst = false, 
             Mlsd = false;
-        Boolean Lenient = false;
-        long KeepAliveTimeout = -1;
-        int ControlKeepAliveReplyTimeout = -1;
-        int MinParams = 5; // listings require 3 params
-        String Protocol = null; // SSL protocol
-        String DoCommand = null;
-        String Trustmgr = null;
-        String ProxyHost = null;
-        int ProxyPort = 80;
-        String ProxyUser = null;
-        String ProxyPassword = null;
-        String Username = null;
-        String Password = null;
+        public Boolean Lenient = false;
+        public long KeepAliveTimeout = -1;
+        public int ControlKeepAliveReplyTimeout = -1;
+        public int MinParams = 5; // listings require 3 params
+        public String Protocol = null; // SSL protocol
+        public String DoCommand = null;
+        public String Trustmgr = null;
+        public String ProxyHost = null;
+        public int ProxyPort = 80;
+        public String ProxyUser = null;
+        public String ProxyPassword = null;
+        public String Username = null;
+        public String Password = null;
 
-        public void ParseInputCommands()
+        public void ParseInputCommands(string[] args)
         {
-            int base = 0;
-            for (base = 0; base < args.length; base++)
+            int i = 0;
+            for (i = 0; i < args.Length; i++)
             {
-                if (args[base].equals("-s")) {
-                    storeFile = true;
+                switch (args[i])
+                {
+                    case "-s":
+                        StoreFile = true;
+                        break;
                 }
-                else if (args[base].equals("-a")) {
+                else if (args[i].equals("-a")) {
                     localActive = true;
                 }
-                else if (args[base].equals("-A")) {
+                else if (args[i].equals("-A")) {
                     username = "anonymous";
                     password = System.getProperty("user.name")+"@"+InetAddress.getLocalHost().getHostName();
                 }
-                else if (args[base].equals("-b")) {
+                else if (args[i].equals("-b")) {
                     binaryTransfer = true;
                 }
-                else if (args[base].equals("-c")) {
-                    doCommand = args[++base];
+                else if (args[i].equals("-c")) {
+                    doCommand = args[++i];
                     minParams = 3;
                 }
-                else if (args[base].equals("-d")) {
+                else if (args[i].equals("-d")) {
                     mlsd = true;
                     minParams = 3;
                 }
-                else if (args[base].equals("-e")) {
+                else if (args[i].equals("-e")) {
                     useEpsvWithIPv4 = true;
                 }
-                else if (args[base].equals("-f")) {
+                else if (args[i].equals("-f")) {
                     feat = true;
                     minParams = 3;
                 }
-                else if (args[base].equals("-h")) {
+                else if (args[i].equals("-h")) {
                     hidden = true;
                 }
-                else if (args[base].equals("-k")) {
-                    keepAliveTimeout = Long.parseLong(args[++base]);
+                else if (args[i].equals("-k")) {
+                    keepAliveTimeout = Long.parseLong(args[++i]);
                 }
-                else if (args[base].equals("-l")) {
+                else if (args[i].equals("-l")) {
                     listFiles = true;
                     minParams = 3;
                 }
-                else if (args[base].equals("-L")) {
+                else if (args[i].equals("-L")) {
                     lenient = true;
                 }
-                else if (args[base].equals("-n")) {
+                else if (args[i].equals("-n")) {
                     listNames = true;
                     minParams = 3;
                 }
-                else if (args[base].equals("-p")) {
-                    protocol = args[++base];
+                else if (args[i].equals("-p")) {
+                    protocol = args[++i];
                 }
-                else if (args[base].equals("-t")) {
+                else if (args[i].equals("-t")) {
                     mlst = true;
                     minParams = 3;
                 }
-                else if (args[base].equals("-w")) {
-                    controlKeepAliveReplyTimeout = Integer.parseInt(args[++base]);
+                else if (args[i].equals("-w")) {
+                    controlKeepAliveReplyTimeout = Integer.parseInt(args[++i]);
                 }
-                else if (args[base].equals("-T")) {
-                    trustmgr = args[++base];
+                else if (args[i].equals("-T")) {
+                    trustmgr = args[++i];
                 }
-                else if (args[base].equals("-PrH")) {
-                    proxyHost = args[++base];
+                else if (args[i].equals("-PrH")) {
+                    proxyHost = args[++i];
                     String parts[] = proxyHost.split(":");
                     if (parts.length == 2){
                         proxyHost=parts[0];
                         proxyPort=Integer.parseInt(parts[1]);
                     }
                 }
-                else if (args[base].equals("-PrU")) {
-                    proxyUser = args[++base];
+                else if (args[i].equals("-PrU")) {
+                    proxyUser = args[++i];
                 }
-                else if (args[base].equals("-PrP")) {
-                    proxyPassword = args[++base];
+                else if (args[i].equals("-PrP")) {
+                    proxyPassword = args[++i];
                 }
-                else if (args[base].equals("-#")) {
+                else if (args[i].equals("-#")) {
                     printHash = true;
                 }
                 else {
