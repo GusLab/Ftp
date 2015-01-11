@@ -44,10 +44,10 @@ namespace Ftp.Utilities
                     case "-s":
                         StoreFile = true;
                         break;
-                }
-                else if (args[i].equals("-a")) {
-                    localActive = true;
-                }
+                    case "-a":
+                        LocalActive = true;
+                        break;
+                }              
                 else if (args[i].equals("-A")) {
                     username = "anonymous";
                     password = System.getProperty("user.name")+"@"+InetAddress.getLocalHost().getHostName();
