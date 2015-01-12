@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ftp.Utilities
 {
-    public sealed class Utilities
+    public sealed class Usage
     {
         private const String UsageText =
             "Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]\n" +

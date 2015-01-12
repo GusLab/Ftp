@@ -27,5 +27,26 @@ namespace Ftp.UnitTests.Utilities.Tests
             StringAssert.AreEqualIgnoringCase(parseInputCommandArgs[3],inputCommands.ProxyPassword);
             Assert.IsTrue(inputCommands.PrintHash);
         }
+
+        [Test]
+        public void ParseInputCommandsFailTimeoutTest()
+        {
+            var inputCommands = new InputCommands();
+
+            var parseInputCommandArgs = new String[5]
+            {
+                "-s",
+                "-e",
+                "-PrP",
+                "password",
+                "-#"
+            };
+            inputCommands.ParseInputCommands(parseInputCommandArgs);
+
+            Assert.IsTrue(inputCommands.StoreFile);
+            Assert.IsTrue(inputCommands.UseEpsvWithIPv4);
+            StringAssert.AreEqualIgnoringCase(parseInputCommandArgs[3], inputCommands.ProxyPassword);
+            Assert.IsTrue(inputCommands.PrintHash);
+        }
     }
 }

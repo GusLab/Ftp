@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Ftp.Utilities;
 using NUnit.Framework;
 
 namespace Ftp.UnitTests.Utilities.Tests
@@ -14,7 +15,7 @@ namespace Ftp.UnitTests.Utilities.Tests
             {
                 Console.SetOut(testStringWriter);
 
-                var util = new Utilities.Utilities();
+                var util = new Usage();
 
                 util.PrintUsageText();
 

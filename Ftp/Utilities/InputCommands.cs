@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ftp.Utilities
 {
@@ -36,7 +32,7 @@ namespace Ftp.Utilities
 
         public void ParseInputCommands(string[] args)
         {
-            int i = 0;
+            var i = 0;
             for (i = 0; i < args.Length; i++)
             {
                 switch (args[i])
@@ -47,59 +43,61 @@ namespace Ftp.Utilities
                     case "-a":
                         LocalActive = true;
                         break;
+                    case "-A":
+                        Username = "anonymous";
+                        Password = "anonymous@" + System.Environment.GetEnvironmentVariable("COMPUTERNAME");
+                        break;
+                    case "-b":
+                        BinaryTransfer = true;
+                        break;
+                    case "-c":
+                        DoCommand = args[++i];
+                        MinParams = 3;
+                        break;
+                    case "-d":
+                        Mlsd = true;
+                        MinParams = 3;
+                        break;
+                    case "-e":
+                        UseEpsvWithIPv4 = true;
+                        break;
+                    case "-f":
+                        Feat = true;
+                        MinParams = 3;
+                        break;
+                    case "-h":
+                        Hidden = true;
+                        break;
+                    case "-k":
+                        KeepAliveTimeout = long.Parse(args[++i]);
+                        break;
+                    case "-l":
+                        ListFiles = true;
+                        MinParams = 3;
+                        break;
+                    case "-L":
+                        Lenient = true;
+                        break;
+                    case "-n":
+                        ListNames = true;
+                        MinParams = 3;
+                        break;
+                    case "-p":
+                        Protocol = args[++i];
+                        break;
+                    case "-t":
+                        Mlst = true;
+                        MinParams = 3;
+                        break;
+                    case "-w":
+                        ControlKeepAliveReplyTimeout = int.Parse(args[++i]);
+                        break;
+                    case "-T":
+                        Trustmgr = args[++i];
+                        break;
+
                 }              
-                /*else if (args[i].equals("-A")) {
-                    username = "anonymous";
-                    password = System.getProperty("user.name")+"@"+InetAddress.getLocalHost().getHostName();
-                }
-                else if (args[i].equals("-b")) {
-                    binaryTransfer = true;
-                }
-                else if (args[i].equals("-c")) {
-                    doCommand = args[++i];
-                    minParams = 3;
-                }
-                else if (args[i].equals("-d")) {
-                    mlsd = true;
-                    minParams = 3;
-                }
-                else if (args[i].equals("-e")) {
-                    useEpsvWithIPv4 = true;
-                }
-                else if (args[i].equals("-f")) {
-                    feat = true;
-                    minParams = 3;
-                }
-                else if (args[i].equals("-h")) {
-                    hidden = true;
-                }
-                else if (args[i].equals("-k")) {
-                    keepAliveTimeout = Long.parseLong(args[++i]);
-                }
-                else if (args[i].equals("-l")) {
-                    listFiles = true;
-                    minParams = 3;
-                }
-                else if (args[i].equals("-L")) {
-                    lenient = true;
-                }
-                else if (args[i].equals("-n")) {
-                    listNames = true;
-                    minParams = 3;
-                }
-                else if (args[i].equals("-p")) {
-                    protocol = args[++i];
-                }
-                else if (args[i].equals("-t")) {
-                    mlst = true;
-                    minParams = 3;
-                }
-                else if (args[i].equals("-w")) {
-                    controlKeepAliveReplyTimeout = Integer.parseInt(args[++i]);
-                }
-                else if (args[i].equals("-T")) {
-                    trustmgr = args[++i];
-                }
+                /*                                              
                 else if (args[i].equals("-PrH")) {
                     proxyHost = args[++i];
                     String parts[] = proxyHost.split(":");
