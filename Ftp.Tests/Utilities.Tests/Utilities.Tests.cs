@@ -2,7 +2,7 @@
 using System.IO;
 using NUnit.Framework;
 
-namespace Ftp.Tests
+namespace Ftp.UnitTests.Utilities.Tests
 {
     [TestFixture]
     public class UtilitiesTests

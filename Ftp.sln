@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ftp", "Ftp\Ftp.csproj", "{624A0E75-24C0-4E92-B924-90C1EB1DB891}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ftp.Tests", "Ftp.Tests\Ftp.Tests.csproj", "{67735F0D-7CD1-4606-B844-A4D2612E9D62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ftp.UnitTests", "Ftp.Tests\Ftp.UnitTests.csproj", "{67735F0D-7CD1-4606-B844-A4D2612E9D62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

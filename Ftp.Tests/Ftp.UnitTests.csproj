@@ -6,7 +6,7 @@
     <ProjectGuid>{67735F0D-7CD1-4606-B844-A4D2612E9D62}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ftp.Tests</RootNamespace>
+    <RootNamespace>Ftp.UnitTests</RootNamespace>
     <AssemblyName>Ftp.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
