@@ -1,10 +1,25 @@
 ﻿using System;
+using System.Text;
+using CommandLine;
 
 namespace Ftp.Utilities
 {
     public sealed class InputCommands
     {
-        public Boolean StoreFile = false, 
+        [Option('a', null, Required = false, HelpText = "Use local active mode (default is local passive)")]
+        public bool StoreFile { get; set; }
+
+        [HelpOption(HelpText = "Display this help screen.")]
+        public string GetUsage()
+        {
+            var usage = new StringBuilder();            
+            usage.AppendLine("Ftp - version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version);
+            usage.AppendLine("Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]");
+            usage.AppendLine("Default behavior is to download a file and use ASCII transfer mode.");
+            return usage.ToString();
+        }
+
+        public Boolean 
             BinaryTransfer = false, 
             Error = false, 
             ListFiles = false, 
@@ -30,6 +45,7 @@ namespace Ftp.Utilities
         public String Username = null;
         public String Password = null;
 
+        /*
         public void ParseInputCommands(string[] args)
         {
             var i = 0;
@@ -97,7 +113,7 @@ namespace Ftp.Utilities
                         break;
 
                 }              
-                /*                                              
+                                                             
                 else if (args[i].equals("-PrH")) {
                     proxyHost = args[++i];
                     String parts[] = proxyHost.split(":");
@@ -118,7 +134,5 @@ namespace Ftp.Utilities
                 else {
                     break;
                 }*/
-            }
-        }
     }
 }

@@ -20,7 +20,7 @@ namespace Ftp.UnitTests.Utilities.Tests
                 "password",
                 "-#"
             };
-            inputCommands.ParseInputCommands(parseInputCommandArgs);
+            
 
             Assert.IsTrue(inputCommands.StoreFile);
             Assert.IsTrue(inputCommands.UseEpsvWithIPv4);
@@ -41,7 +41,6 @@ namespace Ftp.UnitTests.Utilities.Tests
                 "password",
                 "-#"
             };
-            inputCommands.ParseInputCommands(parseInputCommandArgs);
 
             Assert.IsTrue(inputCommands.StoreFile);
             Assert.IsTrue(inputCommands.UseEpsvWithIPv4);
