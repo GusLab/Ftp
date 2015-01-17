@@ -43,6 +43,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{247E9E4B-438
 		Tools\NUnit\lib\nunit.util.dll = Tools\NUnit\lib\nunit.util.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandLine", "CommandLine", "{4CE9E597-6514-46F6-A71F-B7E61E2C84C1}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\CommandLine\CommandLine.dll = Tools\CommandLine\CommandLine.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +73,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4D6D49FF-5EDF-4697-AC8C-7ED448114C78} = {5EEA2D68-8412-43F2-9AD4-DD23116DC34E}
 		{B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2} = {5EEA2D68-8412-43F2-9AD4-DD23116DC34E}
+		{4CE9E597-6514-46F6-A71F-B7E61E2C84C1} = {5EEA2D68-8412-43F2-9AD4-DD23116DC34E}
 		{A0E38FDD-ED51-458C-8693-045A75C9030F} = {B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2}
 		{247E9E4B-438B-4E99-AED9-CCA0C51C2A8D} = {B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2}
 	EndGlobalSection

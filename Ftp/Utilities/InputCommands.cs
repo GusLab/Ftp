@@ -6,7 +6,7 @@ namespace Ftp.Utilities
 {
     public sealed class InputCommands
     {
-        [Option('a', "local-active-mode", Required = false, HelpText = "Use local active mode (default is local passive)")]
+        [Option('a', "local-mode-active", Required = false, HelpText = "Use local active mode (default is local passive)")]
         public bool IsLocalModeActive { get; set; }
 
         [Option('A', "anonymous-login", Required = false, HelpText = "Anonymous login (omit username and password parameters)")]
