@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Text;
 using CommandLine;
-using CommandLine.Text;
 
 namespace Ftp.Utilities
 {
     public sealed class InputCommands
     {
-
         [Option('a', "local-mode-active", Required = false, HelpText = "Use local active mode (default is local passive)")]
         public bool IsLocalModeActive { get; set; }
 
@@ -39,7 +36,8 @@ namespace Ftp.Utilities
         [Option('k', "keep-alive-timeout", DefaultValue = 0, Required = false, HelpText = "Use keep-alive timer (in seconds)")]
         public long KeepAliveTimeout { get; set; }
 
-        [Option('l', "list-files", Required = false, HelpText = "List files using LIST (remote is used as the pathname if provided). Files are listed twice: first in raw mode, then as the formatted parsed data.")]
+        [Option('l', "list-files", Required = false, HelpText = "List files using LIST (remote is used as the pathname if provided)\n" + 
+                                                                "Files are listed twice: first in raw mode, then as the formatted parsed data.")]
         public bool ListFiles { get; set; }
 
         [Option('L', "lenient-dates", Required = false, HelpText = "Use lenient future dates (server dates may be up to 1 day into future)")]
@@ -60,28 +58,39 @@ namespace Ftp.Utilities
         [Option('T', "trust-manager", DefaultValue = "none", Required = false, HelpText = "Use one of the built-in TrustManager implementations (none = default) (options: all|valid|none)")]
         public string TrustManager { get; set; }
 
-        [OptionList('H', "proxy-server", Required = false, HelpText = "HTTP Proxy host and optional port[80] (options: server[:port])")]
-        public IList<string> ProxyServerAndPortList { get; set; }
+        [OptionList('H', "server", DefaultValue = "none", Required = false, HelpText = "HTTP Proxy host and optional port[80] (options: server[:port])")]
+        public IList<string> ServerAndPortList { get; set; }
 
-        [OptionList('u', "proxy-user", DefaultValue = "anonymous", Required = false, HelpText = "HTTP Proxy server username")]
-        public string ProxyUser { get; set; }
 
-        [OptionList('P', "proxy-password", DefaultValue = "anonymous", Required = false, HelpText = "HTTP Proxy server password")]
-        public string ProxyPassword { get; set; }
-
-        [OptionList('#', "print-hash", Required = false, HelpText = "Add hash display during transfers")]
-        public bool IsPrintHash { get; set; }
 
         [HelpOption(HelpText = "Display this help screen.")]
         public string GetUsage()
         {
-            return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
+            var usage = new StringBuilder();            
+            usage.AppendLine("Ftp - version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version);
+            usage.AppendLine("Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]");
+            usage.AppendLine("Default behavior is to download a file and use ASCII transfer mode.");
+            return usage.ToString();
         }
 
-        public bool ParseInputCommands(string[] args)
+        /*
+        public void ParseInputCommands(string[] args)
         {
-            return CommandLine.Parser.Default.ParseArguments(args, this);             
-        }        
-
+            var i = 0;
+            for (i = 0; i < args.Length; i++)
+            {            
+                                                             
+                else if (args[i].equals("-PrU")) {
+                    proxyUser = args[++i];
+                }
+                else if (args[i].equals("-PrP")) {
+                    proxyPassword = args[++i];
+                }
+                else if (args[i].equals("-#")) {
+                    printHash = true;
+                }
+                else {
+                    break;
+                }*/
     }
 }

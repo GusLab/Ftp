@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ftp.Utilities;
 
 namespace Ftp
 {
@@ -10,7 +11,9 @@ namespace Ftp
     {
         static void Main(string[] args)
         {
+            InputCommands inputCommands = new InputCommands();
 
+            inputCommands.ParseInputCommands(args);           
         }
     }
 }

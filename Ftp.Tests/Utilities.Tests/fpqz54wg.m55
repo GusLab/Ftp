@@ -8,32 +8,23 @@ namespace Ftp.UnitTests.Utilities.Tests
     [TestFixture]
     public class InputCommandsTests
     {
-
-        private static string LoadUsageTestFile()
-        {
-            #if DEBUG
-            var filePath = Properties.Resources.DebugUsageTestFileLocation;
-            #else
-            var filePath = Properties.Resources.ReleaseUsageTestFileLocation;
-            #endif
-
-            var streamReader = new StreamReader(filePath);
-            var usageText = streamReader.ReadToEnd();
-            streamReader.Close();
-
-            return usageText;
-        }
-
         [Test]
         public void GetUsageTest()
         {
-
-            var expected = LoadUsageTestFile();
-
             var inputCommands = new InputCommands();
-            var actual = inputCommands.GetUsage();
 
-            StringAssert.AreEqualIgnoringCase(expected, actual);
+            using (var testStringWriter = new StringWriter())
+            {
+                Console.SetOut(testStringWriter);
+                var expected = string.Format("");
+
+                var util = new Usage();
+
+                util.PrintUsageText();
+
+                StringAssert.AreEqualIgnoringCase(expected, "");
+            }
+
 
         }
         
@@ -52,7 +43,7 @@ namespace Ftp.UnitTests.Utilities.Tests
             };
             
 
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
             
         }
 
@@ -70,7 +61,7 @@ namespace Ftp.UnitTests.Utilities.Tests
                 "-#"
             };
 
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
             
         }
     }

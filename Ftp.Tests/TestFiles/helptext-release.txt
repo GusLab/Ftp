@@ -1,0 +1,72 @@
+Ftp 1.0.0.0
+Copyright c  2015
+This is free software. You may redistribute copies of it under the terms of
+Apache License Version 2.0, January 2004 <http://www.apache.org/licenses/>.
+Usage: ftp -A -c delete
+       ftp --anonymous-login --command delete
+
+  -a, --local-mode-active           Use local active mode (default is local
+                                    passive)
+
+  -A, --anonymous-login             Anonymous login (omit username and password
+                                    parameters)
+
+  -s, --upload-file                 Store file on server (upload)
+
+  -b, --binary-mode                 Use binary transfer mode
+
+  -c, --command                     Issue arbitrary command (remote is used as
+                                    a parameter if provided)
+
+  -d, --mlsd                        List directory details using MLSD (remote
+                                    is used as the pathname if provided)
+
+  -e, --epsv-with-ipv4              Use EPSV with IPv4 (default false)
+
+  -f, --feat                        Issue FEAT command (remote and local files
+                                    are ignored)
+
+  -h, --include-hidden              List hidden files (applies to -l and -n
+                                    only)
+
+  -k, --keep-alive-timeout          (Default: 0) Use keep-alive timer (in
+                                    seconds)
+
+  -l, --list-files                  List files using LIST (remote is used as
+                                    the pathname if provided). Files are listed
+                                    twice: first in raw mode, then as the
+                                    formatted parsed data.
+
+  -L, --lenient-dates               Use lenient future dates (server dates may
+                                    be up to 1 day into future)
+
+  -n, --list-names                  List file names using NLST (remote is used
+                                    as the pathname if provided)
+
+  -p, --ftps                        Use FTPSClient with the specified protocol
+                                    and/or isImplicit setting (options:
+                                    true|false|protocol[,true|false])
+
+  -t, --mlst                        List file details using MLST (remote is
+                                    used as the pathname if provided)
+
+  -w, --keep-alive-reply-timeout    (Default: 0) Wait time for keep-alive reply
+                                    (in miliseconds)
+
+  -T, --trust-manager               (Default: none) Use one of the built-in
+                                    TrustManager implementations (none =
+                                    default) (options: all|valid|none)
+
+  -H, --proxy-server                HTTP Proxy host and optional port[80]
+                                    (options: server[:port])
+
+  -u, --proxy-user                  (Default: anonymous) HTTP Proxy server
+                                    username
+
+  -P, --proxy-password              (Default: anonymous) HTTP Proxy server
+                                    password
+
+  -#, --print-hash                  Add hash display during transfers
+
+  --help                            Display this help screen.
+

@@ -8,7 +8,7 @@ using System.Reflection;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 #if DEBUG
-[assembly: AssemblyInformationalVersion("1.0-alpha.0.0")]
+[assembly: AssemblyInformationalVersion("1.A.0.0")]
 #else
     [assembly: AssemblyInformationalVersion("1.0.0.0")]
 #endif
