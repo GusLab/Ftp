@@ -18,6 +18,20 @@ namespace Ftp.Utilities
         [Option('b', "binary-mode", Required = false, HelpText = "Use binary transfer mode")]
         public bool IsBinaryTransfer { get; set; }
 
+        [Option('c', "command", Required = false, HelpText = "Cmd - issue arbitrary command (remote is used as a parameter if provided)")]
+        public string Command { get; set; }
+
+        [Option('d', "mlsd", Required = false, HelpText = "List directory details using MLSD (remote is used as the pathname if provided)")]
+        public bool IsMlsd { get; set; }
+
+        [Option('e', "epsv-with-ipv4", Required = false, HelpText = "Use EPSV with IPv4 (default false)")]
+        public bool IsEpsvWithIPv4 { get; set; }
+
+        [Option('f', "feat", Required = false, HelpText = "Issue FEAT command (remote and local files are ignored)")]
+        public bool IsFeat { get; set; }
+
+        [Option('h', "include-hidden", Required = false, HelpText = "List hidden files (applies to -l and -n only)")]
+        public bool IsIncludeHidden { get; set; }
 
 
 
@@ -31,31 +45,6 @@ namespace Ftp.Utilities
             return usage.ToString();
         }
 
-        public Boolean  
-            Error = false, 
-            ListFiles = false, 
-            ListNames = false, 
-            Hidden = false;
-        public Boolean LocalActive = false, 
-            UseEpsvWithIPv4 = false, 
-            Feat = false, 
-            PrintHash = false;
-        public Boolean Mlst = false, 
-            Mlsd = false;
-        public Boolean Lenient = false;
-        public long KeepAliveTimeout = -1;
-        public int ControlKeepAliveReplyTimeout = -1;
-        public int MinParams = 5; // listings require 3 params
-        public String Protocol = null; // SSL protocol
-        public String DoCommand = null;
-        public String Trustmgr = null;
-        public String ProxyHost = null;
-        public int ProxyPort = 80;
-        public String ProxyUser = null;
-        public String ProxyPassword = null;
-        public String Username = null;
-        public String Password = null;
-
         /*
         public void ParseInputCommands(string[] args)
         {
@@ -64,27 +53,6 @@ namespace Ftp.Utilities
             {
                 switch (args[i])
                 {
-                    case "-b":
-                        BinaryTransfer = true;
-                        break;
-                    case "-c":
-                        DoCommand = args[++i];
-                        MinParams = 3;
-                        break;
-                    case "-d":
-                        Mlsd = true;
-                        MinParams = 3;
-                        break;
-                    case "-e":
-                        UseEpsvWithIPv4 = true;
-                        break;
-                    case "-f":
-                        Feat = true;
-                        MinParams = 3;
-                        break;
-                    case "-h":
-                        Hidden = true;
-                        break;
                     case "-k":
                         KeepAliveTimeout = long.Parse(args[++i]);
                         break;

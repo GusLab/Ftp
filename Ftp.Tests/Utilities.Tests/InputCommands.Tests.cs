@@ -22,10 +22,8 @@ namespace Ftp.UnitTests.Utilities.Tests
             };
             
 
-            Assert.IsTrue(inputCommands.IsStoreFile);
-            Assert.IsTrue(inputCommands.UseEpsvWithIPv4);
-            StringAssert.AreEqualIgnoringCase(parseInputCommandArgs[3],inputCommands.ProxyPassword);
-            Assert.IsTrue(inputCommands.PrintHash);
+            Assert.IsTrue(false);
+            
         }
 
         [Test]
@@ -42,10 +40,8 @@ namespace Ftp.UnitTests.Utilities.Tests
                 "-#"
             };
 
-            Assert.IsTrue(inputCommands.IsStoreFile);
-            Assert.IsTrue(inputCommands.UseEpsvWithIPv4);
-            StringAssert.AreEqualIgnoringCase(parseInputCommandArgs[3], inputCommands.ProxyPassword);
-            Assert.IsTrue(inputCommands.PrintHash);
+            Assert.IsTrue(false);
+            
         }
     }
 }

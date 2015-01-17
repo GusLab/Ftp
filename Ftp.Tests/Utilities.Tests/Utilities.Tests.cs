@@ -44,7 +44,7 @@ namespace Ftp.UnitTests.Utilities.Tests
                                                 "\t-PrP password - HTTP Proxy server password\n" +
                                                 "\t-# - add hash display during transfers\n" + "{0}", Environment.NewLine);
 
-                StringAssert.AreEqualIgnoringCase(expected, testStringWriter.ToString());
+                StringAssert.AreEqualIgnoringCase(expected, "");
             }
         }
     }

@@ -8,10 +8,6 @@ namespace Ftp.Utilities
             "Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]\n" +
             "\nDefault behavior is to download a file and use ASCII transfer mode.\n" +
 
-            "\t-c cmd - issue arbitrary command (remote is used as a parameter if provided) \n" +
-            "\t-d - list directory details using MLSD (remote is used as the pathname if provided)\n" +
-            "\t-e - use EPSV with IPv4 (default false)\n" +
-            "\t-f - issue FEAT command (remote and local files are ignored)\n" +
             "\t-h - list hidden files (applies to -l and -n only)\n" +
             "\t-k secs - use keep-alive timer (setControlKeepAliveTimeout)\n" +
             "\t-l - list files using LIST (remote is used as the pathname if provided)\n" +
