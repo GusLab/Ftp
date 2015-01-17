@@ -11,7 +11,7 @@ namespace Ftp
     {
         static void Main(string[] args)
         {
-            InputCommands inputCommands = new InputCommands();
+            InputCommands inputCommands = new InputCommands();          
 
             inputCommands.ParseInputCommands(args);           
         }
