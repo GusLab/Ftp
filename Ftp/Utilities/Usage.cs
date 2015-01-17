@@ -7,9 +7,7 @@ namespace Ftp.Utilities
         private const String UsageText =
             "Usage: ftp [options] <hostname> <username> <password> [<remote file> [<local file>]]\n" +
             "\nDefault behavior is to download a file and use ASCII transfer mode.\n" +
-            "\t-a - use local active mode (default is local passive)\n" +
-            "\t-A - anonymous login (omit username and password parameters)\n" +
-            "\t-b - use binary transfer mode\n" +
+
             "\t-c cmd - issue arbitrary command (remote is used as a parameter if provided) \n" +
             "\t-d - list directory details using MLSD (remote is used as the pathname if provided)\n" +
             "\t-e - use EPSV with IPv4 (default false)\n" +
@@ -21,7 +19,6 @@ namespace Ftp.Utilities
             "\t-L - use lenient future dates (server dates may be up to 1 day into future)\n" +
             "\t-n - list file names using NLST (remote is used as the pathname if provided)\n" +
             "\t-p true|false|protocol[,true|false] - use FTPSClient with the specified protocol and/or isImplicit setting\n" +
-            "\t-s - store file on server (upload)\n" +
             "\t-t - list file details using MLST (remote is used as the pathname if provided)\n" +
             "\t-w msec - wait time for keep-alive reply (setControlKeepAliveReplyTimeout)\n" +
             "\t-T  all|valid|none - use one of the built-in TrustManager implementations (none = JVM default)\n" +

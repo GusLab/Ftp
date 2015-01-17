@@ -9,10 +9,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ftp.UnitTests", "Ftp.Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FtpPackage.NuGet", "FtpPackage.NuGet\FtpPackage.NuGet.csproj", "{AEA3D3AD-56C4-4811-806B-DE563E248138}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17567E0D-3E8B-4F77-84F4-8DED9A2247D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{5EEA2D68-8412-43F2-9AD4-DD23116DC34E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{4D6D49FF-5EDF-4697-AC8C-7ED448114C78}"
 	ProjectSection(SolutionItems) = preProject
-		.NuGet\NuGet.exe = .NuGet\NuGet.exe
-		.NuGet\NuGetPack.exe = .NuGet\NuGetPack.exe
+		Tools\NuGet\NuGet.exe = Tools\NuGet\NuGet.exe
+		Tools\NuGet\NuGetPack.exe = Tools\NuGet\NuGetPack.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnit", "NUnit", "{B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\NUnit\nunit-console.exe = Tools\NUnit\nunit-console.exe
 	EndProjectSection
 EndProject
 Global
@@ -36,5 +43,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4D6D49FF-5EDF-4697-AC8C-7ED448114C78} = {5EEA2D68-8412-43F2-9AD4-DD23116DC34E}
+		{B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2} = {5EEA2D68-8412-43F2-9AD4-DD23116DC34E}
 	EndGlobalSection
 EndGlobal

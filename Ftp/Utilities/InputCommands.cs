@@ -6,8 +6,20 @@ namespace Ftp.Utilities
 {
     public sealed class InputCommands
     {
-        [Option('a', null, Required = false, HelpText = "Use local active mode (default is local passive)")]
-        public bool StoreFile { get; set; }
+        [Option('a', "local-active-mode", Required = false, HelpText = "Use local active mode (default is local passive)")]
+        public bool IsLocalModeActive { get; set; }
+
+        [Option('A', "anonymous-login", Required = false, HelpText = "Anonymous login (omit username and password parameters)")]
+        public bool IsAnonymousLogin { get; set; }
+
+        [Option('s', "upload-file", Required = false, HelpText = "Store file on server (upload)")]
+        public bool IsStoreFile { get; set; }
+
+        [Option('b', "binary-mode", Required = false, HelpText = "Use binary transfer mode")]
+        public bool IsBinaryTransfer { get; set; }
+
+
+
 
         [HelpOption(HelpText = "Display this help screen.")]
         public string GetUsage()
@@ -19,8 +31,7 @@ namespace Ftp.Utilities
             return usage.ToString();
         }
 
-        public Boolean 
-            BinaryTransfer = false, 
+        public Boolean  
             Error = false, 
             ListFiles = false, 
             ListNames = false, 
@@ -53,16 +64,6 @@ namespace Ftp.Utilities
             {
                 switch (args[i])
                 {
-                    case "-s":
-                        StoreFile = true;
-                        break;
-                    case "-a":
-                        LocalActive = true;
-                        break;
-                    case "-A":
-                        Username = "anonymous";
-                        Password = "anonymous@" + System.Environment.GetEnvironmentVariable("COMPUTERNAME");
-                        break;
                     case "-b":
                         BinaryTransfer = true;
                         break;
