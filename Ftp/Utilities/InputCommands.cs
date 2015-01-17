@@ -33,7 +33,18 @@ namespace Ftp.Utilities
         [Option('h', "include-hidden", Required = false, HelpText = "List hidden files (applies to -l and -n only)")]
         public bool IsIncludeHidden { get; set; }
 
+        [Option('k', "keep-alive-timeout", DefaultValue = 5, Required = false, HelpText = "Secs - use keep-alive timer (setControlKeepAliveTimeout)")]
+        public long KeepAliveTimeout { get; set; }
 
+        [Option('l', "list-files", Required = false, HelpText = "List files using LIST (remote is used as the pathname if provided)\n" + 
+                                                                "Files are listed twice: first in raw mode, then as the formatted parsed data.")]
+        public bool ListFiles { get; set; }
+
+        [Option('L', "lenient-dates", Required = false, HelpText = "Use lenient future dates (server dates may be up to 1 day into future)")]
+        public bool IsLenient { get; set; }
+
+        [Option('n', "list-names", Required = false, HelpText = "List file names using NLST (remote is used as the pathname if provided)")]
+        public bool ListNames { get; set; }
 
         [HelpOption(HelpText = "Display this help screen.")]
         public string GetUsage()
@@ -53,20 +64,6 @@ namespace Ftp.Utilities
             {
                 switch (args[i])
                 {
-                    case "-k":
-                        KeepAliveTimeout = long.Parse(args[++i]);
-                        break;
-                    case "-l":
-                        ListFiles = true;
-                        MinParams = 3;
-                        break;
-                    case "-L":
-                        Lenient = true;
-                        break;
-                    case "-n":
-                        ListNames = true;
-                        MinParams = 3;
-                        break;
                     case "-p":
                         Protocol = args[++i];
                         break;
