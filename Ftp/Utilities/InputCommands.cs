@@ -8,6 +8,8 @@ namespace Ftp.Utilities
 {
     public sealed class InputCommands
     {
+        [ParserState]
+        public IParserState LastParserState { get; set; }
 
         [Option('a', "local-mode-active", Required = false, HelpText = "Use local active mode (default is local passive)")]
         public bool IsLocalModeActive { get; set; }
@@ -75,7 +77,17 @@ namespace Ftp.Utilities
         [HelpOption(HelpText = "Display this help screen.")]
         public string GetUsage()
         {
-            return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
+            var help = new HelpText
+            {
+                Heading = new HeadingInfo("<<app title>>", "<<app version>>"),
+                Copyright = new CopyrightInfo("<<app author>>", 2014),
+                AdditionalNewLineAfterOption = true,
+                AddDashesToOption = true
+            };
+            help.AddPreOptionsLine("<<license details here.>>");
+            help.AddPreOptionsLine("Usage: app -p Someone");
+            help.AddOptions(this);
+            return help;           
         }
 
         public bool ParseInputCommands(string[] args)

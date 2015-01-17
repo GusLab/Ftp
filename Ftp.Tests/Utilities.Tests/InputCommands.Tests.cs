@@ -52,7 +52,7 @@ namespace Ftp.UnitTests.Utilities.Tests
             };
             
 
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
             
         }
 
@@ -70,7 +70,7 @@ namespace Ftp.UnitTests.Utilities.Tests
                 "-#"
             };
 
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
             
         }
     }
