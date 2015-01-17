@@ -51,6 +51,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir).NuGet\NuGetPack.exe" "$(ProjectPath)" "$(TargetPath)" $(ConfigurationName)</PostBuildEvent>
+    <PostBuildEvent>"$(SolutionDir)Tools\NuGet\NuGetPack.exe" "$(ProjectPath)" "$(TargetPath)" $(ConfigurationName)</PostBuildEvent>
   </PropertyGroup>
 </Project>

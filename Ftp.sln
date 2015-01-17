@@ -19,7 +19,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{4D6D49FF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnit", "NUnit", "{B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2}"
 	ProjectSection(SolutionItems) = preProject
+		Tools\NUnit\nunit-agent.exe = Tools\NUnit\nunit-agent.exe
+		Tools\NUnit\nunit-agent.exe.config = Tools\NUnit\nunit-agent.exe.config
 		Tools\NUnit\nunit-console.exe = Tools\NUnit\nunit-console.exe
+		Tools\NUnit\nunit-console.exe.config = Tools\NUnit\nunit-console.exe.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{A0E38FDD-ED51-458C-8693-045A75C9030F}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\NUnit\framework\nunit.framework.dll = Tools\NUnit\framework\nunit.framework.dll
+		Tools\NUnit\framework\nunit.framework.xml = Tools\NUnit\framework\nunit.framework.xml
+		Tools\NUnit\framework\nunit.mocks.dll = Tools\NUnit\framework\nunit.mocks.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{247E9E4B-438B-4E99-AED9-CCA0C51C2A8D}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\NUnit\lib\nunit-console-runner.dll = Tools\NUnit\lib\nunit-console-runner.dll
+		Tools\NUnit\lib\nunit-gui-runner.dll = Tools\NUnit\lib\nunit-gui-runner.dll
+		Tools\NUnit\lib\nunit.core.dll = Tools\NUnit\lib\nunit.core.dll
+		Tools\NUnit\lib\nunit.core.interfaces.dll = Tools\NUnit\lib\nunit.core.interfaces.dll
+		Tools\NUnit\lib\nunit.uiexception.dll = Tools\NUnit\lib\nunit.uiexception.dll
+		Tools\NUnit\lib\nunit.uikit.dll = Tools\NUnit\lib\nunit.uikit.dll
+		Tools\NUnit\lib\nunit.util.dll = Tools\NUnit\lib\nunit.util.dll
 	EndProjectSection
 EndProject
 Global
@@ -47,5 +68,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4D6D49FF-5EDF-4697-AC8C-7ED448114C78} = {5EEA2D68-8412-43F2-9AD4-DD23116DC34E}
 		{B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2} = {5EEA2D68-8412-43F2-9AD4-DD23116DC34E}
+		{A0E38FDD-ED51-458C-8693-045A75C9030F} = {B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2}
+		{247E9E4B-438B-4E99-AED9-CCA0C51C2A8D} = {B915D727-E36C-40C6-B6AE-5BFFBFA5C4A2}
 	EndGlobalSection
 EndGlobal
