@@ -1,5 +1,13 @@
-CommandLine 1.9.71-stable
-Copyright (c) 2005 - 2013 Giacomo Stelluti Scala
+Ftp 1.0.0.0
+Copyright (C) 2015 Gustaw Fit
+This is free software. You may redistribute copies of it under the terms 
+of
+Apache License Version 2.0, January 2004 
+<http://www.apache.org/licenses/>.
+
+Usage: ftp -A -c delete
+       ftp --anonymous-login --command delete
+
 
   -a, --local-mode-active           Use local active mode (default is local 
                                     passive)

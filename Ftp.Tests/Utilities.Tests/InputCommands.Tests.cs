@@ -28,13 +28,11 @@ namespace Ftp.UnitTests.Utilities.Tests
         public void GetUsageTest()
         {
 
-            var expected = LoadUsageTestFile();
-
             var inputCommands = new InputCommands();
+            var expected = LoadUsageTestFile();            
             var actual = inputCommands.GetUsage();
 
             StringAssert.AreEqualIgnoringCase(expected, actual);
-
         }
         
         [Test]
