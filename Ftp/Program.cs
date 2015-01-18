@@ -13,8 +13,8 @@ namespace Ftp
         {
             var inputCommands = new InputCommands();          
 
-            //inputCommands.ParseInputCommands(args);           
-            var sss = inputCommands.GetUsage();
+            inputCommands.ParseInputCommands(args);           
+            //var sss = inputCommands.GetUsage();
         }
     }
 }
