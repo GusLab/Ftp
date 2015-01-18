@@ -26,7 +26,13 @@ namespace Ftp.UnitTests.Utilities.Tests
         private static Assembly GetStubbedAssembly()
         {
             var stubbedAssemblyLoader = MockRepository.GenerateStub<IAssemblyLoader>();
-            stubbedAssemblyLoader.Stub(x => x.GetEntryAssembly()).Return(Assembly.LoadFrom(Properties.Resources.AssemblyTestDllFileLocation));
+
+            #if DEBUG
+                var stubFilePath = Properties.Resources.DebugAssemblyTestDllFileLocation;
+            #else
+                var stubFilePath = Properties.Resources.ReleaseAssemblyTestDllFileLocation;
+            #endif            
+            stubbedAssemblyLoader.Stub(x => x.GetEntryAssembly()).Return(Assembly.LoadFrom(stubFilePath));
 
             return stubbedAssemblyLoader.GetEntryAssembly();
         }
