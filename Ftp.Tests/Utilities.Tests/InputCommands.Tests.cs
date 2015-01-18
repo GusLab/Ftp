@@ -42,33 +42,18 @@ namespace Ftp.UnitTests.Utilities.Tests
 
             var parseInputCommandArgs = new String[5]
             {
-                "-s",
-                "-e",
-                "-PrP",
-                "password",
+                "--keep-alive-reply-timeout",
+                "55",
+                "-u",
+                "user",
                 "-#"
             };
-            
 
-            Assert.IsTrue(false);
-            
-        }
+            inputCommands.ParseInputCommands(parseInputCommandArgs);
 
-        [Test]
-        public void ParseInputCommandsFailTimeoutTest()
-        {
-            var inputCommands = new InputCommands();
-
-            var parseInputCommandArgs = new String[5]
-            {
-                "-s",
-                "-e",
-                "-PrP",
-                "password",
-                "-#"
-            }; 
-
-            Assert.IsTrue(false);
+            Assert.IsTrue(inputCommands.KeepAliveReplyTimeout == 55);
+            Assert.IsTrue(inputCommands.ProxyUser == "user");
+            Assert.IsTrue(inputCommands.IsPrintHash == true);
             
         }
     }

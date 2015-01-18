@@ -66,13 +66,13 @@ namespace Ftp.Utilities
         [OptionList('H', "proxy-server", Required = false, HelpText = "HTTP Proxy host and optional port[80] (options: server[:port])")]
         public IList<string> ProxyServerAndPortList { get; set; }
 
-        [OptionList('u', "proxy-user", DefaultValue = "anonymous", Required = false, HelpText = "HTTP Proxy server username")]
+        [Option('u', "proxy-user", DefaultValue = "anonymous", Required = false, HelpText = "HTTP Proxy server username")]
         public string ProxyUser { get; set; }
 
-        [OptionList('P', "proxy-password", DefaultValue = "anonymous", Required = false, HelpText = "HTTP Proxy server password")]
+        [Option('P', "proxy-password", DefaultValue = "anonymous", Required = false, HelpText = "HTTP Proxy server password")]
         public string ProxyPassword { get; set; }
 
-        [OptionList('#', "print-hash", Required = false, HelpText = "Add hash display during transfers")]
+        [Option('#', "print-hash", Required = false, HelpText = "Add hash display during transfers")]
         public bool IsPrintHash { get; set; }
 
         [HelpOption(HelpText = "Display this help screen.")]
