@@ -66,7 +66,7 @@ namespace Ftp.UnitTests.Utilities.Tests
                 "-PrP",
                 "password",
                 "-#"
-            };
+            }; 
 
             Assert.IsTrue(false);
             
