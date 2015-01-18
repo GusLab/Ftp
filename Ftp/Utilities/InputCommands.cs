@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using CommandLine;
 using CommandLine.Text;
 
@@ -77,15 +78,16 @@ namespace Ftp.Utilities
         [HelpOption(HelpText = "Display this help screen.")]
         public string GetUsage()
         {
+            var assembly = Assembly.GetExecutingAssembly();
             var help = new HelpText
             {
-                Heading = new HeadingInfo("<<app title>>", "<<app version>>"),
-                Copyright = new CopyrightInfo("<<app author>>", 2014),
+                Heading = new HeadingInfo(assembly.GetExecutingAssemblyProductName(), assembly.GetExecutingAssemblyInformationalVersion()),
+                Copyright = new CopyrightInfo(assembly.GetExecutingAssemblyCopyright(), int.Parse(assembly.GetExecutingAssemblyDescription())),
                 AdditionalNewLineAfterOption = true,
                 AddDashesToOption = true
             };
-            help.AddPreOptionsLine("<<license details here.>>");
-            help.AddPreOptionsLine("Usage: app -p Someone");
+            help.AddPreOptionsLine(assembly.GetExecutingAssemblyLicence());
+            help.AddPreOptionsLine(assembly.GetExecutingAssemblyUsage());
             help.AddOptions(this);
             return help;           
         }

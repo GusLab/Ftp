@@ -61,6 +61,15 @@ namespace Ftp.UnitTests.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TestFiles\AssemblyTestDll.dll.
+        /// </summary>
+        internal static string AssemblyTestDllFileLocation {
+            get {
+                return ResourceManager.GetString("AssemblyTestDllFileLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TestFiles\helptext-debug.txt.
         /// </summary>
         internal static string DebugUsageTestFileLocation {

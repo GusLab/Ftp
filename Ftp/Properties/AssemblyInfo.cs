@@ -6,10 +6,10 @@ using CommandLine;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Ftp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("2015")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyProduct("Ftp")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Gustaw Fit")]
 [assembly: AssemblyLicense(
     "This is free software. You may redistribute copies of it under the terms of",
     "Apache License Version 2.0, January 2004 <http://www.apache.org/licenses/>.")]
