@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using CommandLine;
 using CommandLine.Text;
@@ -88,7 +87,7 @@ namespace Ftp.Utilities
             };
             help.AddPreOptionsLine(assembly.GetExecutingAssemblyLicence());
             help.AddPreOptionsLine(assembly.GetExecutingAssemblyUsage());
-            help.AddOptions(this);
+            help.AddOptions(this);            
             return help;           
         }
 

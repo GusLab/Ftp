@@ -27,9 +27,9 @@ namespace Ftp.UnitTests.Utilities.Tests
         [Test]
         public void GetUsageTest()
         {
-
+            
             var inputCommands = new InputCommands();
-            var expected = LoadUsageTestFile();            
+            var expected = LoadUsageTestFile().Replace("\r\n","\n").Replace("\n",Environment.NewLine);            
             var actual = inputCommands.GetUsage();
 
             StringAssert.AreEqualIgnoringCase(expected, actual);
