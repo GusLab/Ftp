@@ -79,9 +79,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestFiles\AssemblyTestDll.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="TestFiles\AssemblyTestDll-Debug.dll" />
+    <Content Include="TestFiles\AssemblyTestDll-Release.dll" />
     <Content Include="TestFiles\helptext-debug.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
