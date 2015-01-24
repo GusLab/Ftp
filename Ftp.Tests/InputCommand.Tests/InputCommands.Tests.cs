@@ -69,28 +69,6 @@ namespace Ftp.UnitTests.InputCommand.Tests
         }
 
         [Test]
-        public void ParseInputMandatoryCommandsMissingTest()
-        {
-            var inputCommands = new InputCommands();
-
-            var parseInputCommandArgs = new String[8]
-            {
-                "--server",
-                "255.255.255.255:21",
-                "-u",
-                "user",
-                "-p",
-                "password",
-                "--remote-path",
-                "\\test"
-            };
-
-            var result = inputCommands.ParseInputCommands(parseInputCommandArgs);
-
-            Assert.IsTrue(!result);
-        }
-
-        [Test]
         public void ParseInputMandatoryCommandsMissingErrorHelpShownTest()
         {
             var inputCommands = new InputCommands();
@@ -112,10 +90,10 @@ namespace Ftp.UnitTests.InputCommand.Tests
 
             Assert.IsTrue(!result);
             StringAssert.Contains("--local-path required option is missing.",consoleOutput);
-            StringAssert.Contains("--password required option" + Environment.NewLine + "is missing.", consoleOutput);
-            StringAssert.Contains("--server" + Environment.NewLine + "required option is missing.", consoleOutput);
-            //StringAssert.Contains("--user required option is missing.", consoleOutput);
-            //StringAssert.Contains("--remote-path required option is missing.", consoleOutput);
+            StringAssert.Contains("--password required option " + Environment.NewLine + "is missing.", consoleOutput);
+            StringAssert.Contains("--server " + Environment.NewLine + "required option is missing.", consoleOutput);
+            StringAssert.Contains("--user required option is missing.", consoleOutput);
+            StringAssert.Contains("--remote-path required option is missing.", consoleOutput);
         }
 
         [Test]
@@ -150,6 +128,44 @@ namespace Ftp.UnitTests.InputCommand.Tests
 
             Assert.IsTrue(result);     
             StringAssert.AreEqualIgnoringCase("",consoleOutput);
-        }       
+        }
+
+        [Test]
+        public void ParseInputParseErrorsShowErrorTextTest()
+        {
+            var inputCommands = new InputCommands();
+            var fakeConsoleBuffer = new StringBuilder();
+            var fakeConsole = new StringWriter(fakeConsoleBuffer);
+            var result = false;
+            var consoleOutput = "";
+            Console.SetOut(fakeConsole);
+            Console.SetError(fakeConsole);
+
+            var parseInputCommandArgs = new String[14]
+            {
+                "--server",
+                "255.255.255.255:21",
+                "-u",
+                "user",
+                "-p",
+                "password",
+                "--remote-path",
+                "\\test",
+                "--local-path",
+                "\\local",
+                "--keep-alive-timeout",
+                "forest",
+                "--keep-alive-reply-timeout",
+                "forest2"
+            };
+
+            result = inputCommands.ParseInputCommands(parseInputCommandArgs);
+
+            consoleOutput = fakeConsoleBuffer.ToString();
+
+            Assert.IsTrue(!result);
+            StringAssert.Contains("--keep-alive-timeout option violates format.", consoleOutput);
+            StringAssert.Contains("--keep-alive-reply-timeout option violates format.", consoleOutput);
+        } 
     }
 }

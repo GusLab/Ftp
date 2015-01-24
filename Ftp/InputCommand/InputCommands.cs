@@ -31,7 +31,7 @@ namespace Ftp.InputCommand
 
         [Option('c', "command", Required = false, HelpText = "Issue arbitrary command (remote is used as a parameter if provided)")]
         public string Command { get; set; }
-        
+
         [Option('C', "console", Required = false, HelpText = "Starts console")]
         public bool IsConsole { get; set; }
 
