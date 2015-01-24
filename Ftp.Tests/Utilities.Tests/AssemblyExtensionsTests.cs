@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Ftp.Utilities;
+using Ftp.InputCommand;
 using NUnit.Framework;
 using Rhino.Mocks;
 using System.Reflection;

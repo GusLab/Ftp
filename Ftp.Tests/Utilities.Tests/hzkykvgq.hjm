@@ -9,7 +9,7 @@ namespace Ftp.UnitTests.Utilities.Tests
     public class InputCommandsTests
     {
 
-        private static string LoadUsageTestFile()
+        private string LoadUsageTestFile()
         {
             #if DEBUG
             var filePath = Properties.Resources.DebugUsageTestFileLocation;
@@ -27,12 +27,17 @@ namespace Ftp.UnitTests.Utilities.Tests
         [Test]
         public void GetUsageTest()
         {
-            
-            var inputCommands = new InputCommands();
-            var expected = LoadUsageTestFile().Replace("\r\n","\n").Replace("\n",Environment.NewLine);            
-            var actual = inputCommands.GetUsage();
 
-            StringAssert.AreEqualIgnoringCase(expected, actual);
+            var expected = this.LoadUsageTestFile();
+
+
+
+            var inputCommands = new InputCommands();
+
+            var received = inputCommands.GetUsage();
+
+            StringAssert.AreEqualIgnoringCase(expected, received);
+
         }
         
         [Test]
@@ -42,18 +47,33 @@ namespace Ftp.UnitTests.Utilities.Tests
 
             var parseInputCommandArgs = new String[5]
             {
-                "--keep-alive-reply-timeout",
-                "55",
-                "-u",
-                "user",
+                "-s",
+                "-e",
+                "-PrP",
+                "password",
+                "-#"
+            };
+            
+
+            Assert.IsTrue(false);
+            
+        }
+
+        [Test]
+        public void ParseInputCommandsFailTimeoutTest()
+        {
+            var inputCommands = new InputCommands();
+
+            var parseInputCommandArgs = new String[5]
+            {
+                "-s",
+                "-e",
+                "-PrP",
+                "password",
                 "-#"
             };
 
-            inputCommands.ParseInputCommands(parseInputCommandArgs);
-
-            Assert.IsTrue(inputCommands.KeepAliveReplyTimeout == 55);
-            Assert.IsTrue(inputCommands.ProxyUser == "user");
-            Assert.IsTrue(inputCommands.IsPrintHash == true);
+            Assert.IsTrue(false);
             
         }
     }

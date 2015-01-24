@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ftp.Utilities;
+﻿using Ftp.InputCommand;
 
 namespace Ftp
 {
@@ -13,8 +8,15 @@ namespace Ftp
         {
             var inputCommands = new InputCommands();          
 
-            inputCommands.ParseInputCommands(args);           
-            //var sss = inputCommands.GetUsage();
+            if (inputCommands.ParseInputCommands(args))
+            {
+                Run(inputCommands);
+            }
+        }
+
+        private static void Run(InputCommands inputCommands)
+        {
+            
         }
     }
 }

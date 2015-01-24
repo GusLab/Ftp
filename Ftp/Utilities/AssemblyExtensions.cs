@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using CommandLine;
 
-namespace Ftp.Utilities
+namespace Ftp.InputCommand
 {
     public static class AssemblyExtensions
     {
