@@ -81,7 +81,7 @@ namespace Ftp.UnitTests.InputCommand.Tests
 
             var parseInputCommandArgs = new String[1]
             {
-                "--console"
+                "--mlst"
             };
 
             result = inputCommands.ParseInputCommands(parseInputCommandArgs);
@@ -166,6 +166,34 @@ namespace Ftp.UnitTests.InputCommand.Tests
             Assert.IsTrue(!result);
             StringAssert.Contains("--keep-alive-timeout option violates format.", consoleOutput);
             StringAssert.Contains("--keep-alive-reply-timeout option violates format.", consoleOutput);
-        } 
+        }
+
+        [Test]
+        public void ParseInputConsoleOverridesAnyErrorTest()
+        {
+            var inputCommands = new InputCommands();
+            var fakeConsoleBuffer = new StringBuilder();
+            var fakeConsole = new StringWriter(fakeConsoleBuffer);
+            var result = false;
+            var consoleOutput = "";
+            Console.SetOut(fakeConsole);
+            Console.SetError(fakeConsole);
+
+            var parseInputCommandArgs = new String[5]
+            {
+                "--mlst",
+                "--keep-alive-timeout",
+                "forest",
+                "--keep-alive-reply-timeout",
+                "forest2"
+            };
+
+            result = inputCommands.ParseInputCommands(parseInputCommandArgs);
+
+            consoleOutput = fakeConsoleBuffer.ToString();
+
+            Assert.IsTrue(!result);
+            StringAssert.Contains("", consoleOutput);
+        }
     }
 }

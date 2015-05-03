@@ -1,4 +1,5 @@
-﻿using Ftp.InputCommand;
+﻿using System;
+using Ftp.InputCommand;
 
 namespace Ftp
 {
@@ -9,12 +10,12 @@ namespace Ftp
             var inputCommands = new InputCommands();          
 
             if (inputCommands.ParseInputCommands(args))
-            {
-                Run(inputCommands);
+            {           
+                Run(inputCommands, inputCommands.IsConsole);
             }
         }
 
-        private static void Run(InputCommands inputCommands)
+        private static void Run(InputCommands inputCommands, bool isConsole = false)
         {
             
         }
